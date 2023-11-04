@@ -1,0 +1,22 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: instance
+    image: ghcr.io/oldtyt/docker-ubuntu-python
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+  inventory:
+    host_vars:
+      my_instance:
+        ansible_python_interpreter: "/usr/bin/python3"
+  playbooks:
+    converge: ../../playbook.yml
+verifier:
+  name: testinfra
+  additional_files_or_dirs:
+    - ../../../testinfra_all.py

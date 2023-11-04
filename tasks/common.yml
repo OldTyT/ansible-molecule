@@ -1,0 +1,8 @@
+---
+- name: Test task
+  copy:
+    content: "{{ myvar }}"
+    dest: /etc/var
+    owner: mail
+    group: mail
+    mode: "0777"

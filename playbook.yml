@@ -1,0 +1,11 @@
+---
+- name: testing
+  hosts: all
+  vars_files:
+    - vars/common.yml
+
+  handlers:
+    - import_tasks: handlers/handlers.yml
+
+  tasks:
+    - import_tasks: tasks/common.yml
