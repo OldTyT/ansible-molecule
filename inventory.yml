@@ -1,0 +1,13 @@
+---
+all:
+  vars:
+    ansible_user: 'root'
+    ansible_python_interpreter: /usr/bin/python3
+    ansible_ssh_pipelining: true
+    ansible_ssh_transfer_method: piped
+    ansible_ssh_args: -o ControlMaster=auto -o ControlPersist=15m
+  children:
+    testing:
+      hosts:
+        host-01:
+          ansible_host: '127.0.0.1'
